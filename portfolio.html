@@ -1,961 +1,931 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nithyasri Periyasamy | Java & AI Developer</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f8fa;
-            color: #202124;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-
-        nav {
-            width: 100%;
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #111827;
-        }
-
-        .logo span {
-            color: #2563eb;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #2563eb;
-        }
-
-        /* Hero */
-
-        .hero {
-            max-width: 1100px;
-            margin: auto;
-            padding: 100px 25px 80px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: #111827;
-        }
-
-        .hero h1 span {
-            color: #2563eb;
-        }
-
-        .hero h2 {
-            font-size: 22px;
-            margin-bottom: 18px;
-            color: #374151;
-            font-weight: 500;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: #6b7280;
-            font-size: 17px;
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 12px 22px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .primary {
-            background: #2563eb;
-            color: white;
-        }
-
-        .secondary {
-            border: 1px solid #d1d5db;
-            color: #374151;
-            background: white;
-        }
-
-        .hero-card {
-            background: white;
-            padding: 30px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-        }
-
-        .hero-card h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .hero-card p {
-            margin: 10px 0;
-            color: #4b5563;
-        }
-
-        .java-highlight {
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        /* General */
-
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 75px 25px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 35px;
-            color: #111827;
-        }
-
-        .section-title span {
-            color: #2563eb;
-        }
-
-        /* About */
-
-        .about {
-            background: white;
-            max-width: none;
-        }
-
-        .about-content {
-            max-width: 1050px;
-            margin: auto;
-        }
-
-        .about p {
-            max-width: 850px;
-            color: #4b5563;
-            font-size: 16px;
-        }
-
-        /* Skills */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 25px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 15px;
-            color: #111827;
-        }
-
-        .skill-card p {
-            color: #6b7280;
-            font-size: 15px;
-        }
-
-        .java-card {
-            border: 2px solid #2563eb;
-        }
-
-        .java-card h3 {
-            color: #2563eb;
-        }
-
-        /* Experience */
-
-        .experience-card {
-            background: white;
-            padding: 30px;
-            border-left: 4px solid #2563eb;
-            border-radius: 8px;
-            border-top: 1px solid #e5e7eb;
-            border-right: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .experience-card h3 {
-            font-size: 21px;
-            margin-bottom: 5px;
-        }
-
-        .experience-card .company {
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        .experience-card .date {
-            color: #6b7280;
-            margin-bottom: 18px;
-        }
-
-        .experience-card ul {
-            padding-left: 20px;
-            color: #4b5563;
-        }
-
-        /* Projects */
-
-        .projects {
-            background: white;
-            max-width: none;
-        }
-
-        .projects-container {
-            max-width: 1050px;
-            margin: auto;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            padding: 28px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            background: #fafafa;
-        }
-
-        .project-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .project-card p {
-            color: #6b7280;
-            font-size: 15px;
-            margin-bottom: 18px;
-        }
-
-        .tech {
-            font-size: 13px;
-            color: #2563eb;
-            font-weight: 600;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 18px;
-            text-decoration: none;
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        /* Education */
-
-        .education-card {
-            background: white;
-            padding: 30px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-        }
-
-        .education-card h3 {
-            margin-bottom: 8px;
-        }
-
-        .education-card p {
-            color: #6b7280;
-        }
-
-        /* Achievements */
-
-        .achievement-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .achievement {
-            background: white;
-            padding: 25px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-        }
-
-        .achievement h3 {
-            margin-bottom: 8px;
-        }
-
-        .achievement p {
-            color: #6b7280;
-        }
-
-        /* Contact */
-
-        .contact {
-            background: #111827;
-            color: white;
-            max-width: none;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .contact p {
-            color: #d1d5db;
-            margin-bottom: 25px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .contact-links a:hover {
-            color: #60a5fa;
-        }
-
-        footer {
-            background: #111827;
-            color: #9ca3af;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #374151;
-            font-size: 14px;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 800px) {
-
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding-top: 70px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievement-list {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nithyasri Periyasamy — AI & Data Science Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #030712;
+    --surface: #0d1117;
+    --surface2: #161b22;
+    --border: rgba(255,255,255,0.07);
+    --accent: #6ee7b7;
+    --accent2: #38bdf8;
+    --accent3: #a78bfa;
+    --text: #f0f6fc;
+    --muted: #8b949e;
+    --glow: rgba(110,231,183,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+    mix-blend-mode: screen;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all 0.18s cubic-bezier(.25,.46,.45,.94);
+    opacity: 0.5;
+  }
+  .cursor.hovered { width: 20px; height: 20px; background: var(--accent2); }
+  .cursor-ring.hovered { width: 54px; height: 54px; border-color: var(--accent2); }
+
+  /* Canvas background */
+  #bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    opacity: 0.55;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(3,7,18,0.9), transparent);
+    backdrop-filter: blur(0px);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 22px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 500; transition: color 0.3s;
+    font-family: 'DM Mono', monospace;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* Main sections */
+  section { position: relative; z-index: 10; }
+
+  /* Hero */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hero-inner { max-width: 700px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(110,231,183,0.08);
+    border: 1px solid rgba(110,231,183,0.2);
+    padding: 8px 18px; border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--accent); letter-spacing: 1px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(52px, 8vw, 90px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  h1 .line1 { display: block; color: var(--text); }
+  h1 .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-desc {
+    font-size: 17px; line-height: 1.7; color: var(--muted);
+    max-width: 520px; margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: #030712;
+    padding: 14px 30px; border-radius: 100px;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+    transition: all 0.3s; letter-spacing: 0.3px;
+  }
+  .btn-primary:hover { background: #a7f3d0; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(110,231,183,0.3); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--border); color: var(--text);
+    padding: 14px 30px; border-radius: 100px;
+    font-size: 14px; text-decoration: none;
+    transition: all 0.3s; background: rgba(255,255,255,0.03);
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 64px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .stat-item { border-left: 2px solid var(--accent); padding-left: 16px; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px; font-weight: 800; color: var(--text);
+    line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section headers */
+  .section-wrap { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800; letter-spacing: -2px;
+    margin-bottom: 60px; line-height: 1.05;
+  }
+
+  /* Skills */
+  #skills { border-top: 1px solid var(--border); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative; overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 0 0, var(--glow), transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .skill-card:hover { border-color: rgba(110,231,183,0.3); transform: translateY(-4px) scale(1.01); }
+  .skill-card:hover::before { opacity: 1; }
+  .skill-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(110,231,183,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700;
+    margin-bottom: 10px; color: var(--text);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; padding: 4px 10px; border-radius: 100px;
+    background: rgba(255,255,255,0.05); color: var(--muted);
+    border: 1px solid var(--border); letter-spacing: 0.3px;
+  }
+
+  /* Projects */
+  #projects { border-top: 1px solid var(--border); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .project-card:hover { border-color: rgba(110,231,183,0.2); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+  .project-card:hover::after { opacity: 1; }
+  .project-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--accent); opacity: 0.6;
+    margin-bottom: 16px; letter-spacing: 1px;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700;
+    margin-bottom: 12px; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 14px; line-height: 1.65; color: var(--muted);
+    flex: 1; margin-bottom: 20px;
+  }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; padding: 5px 12px; border-radius: 100px;
+    letter-spacing: 0.3px; font-weight: 500;
+  }
+  .chip-green { background: rgba(110,231,183,0.1); color: var(--accent); border: 1px solid rgba(110,231,183,0.2); }
+  .chip-blue { background: rgba(56,189,248,0.1); color: var(--accent2); border: 1px solid rgba(56,189,248,0.2); }
+  .chip-purple { background: rgba(167,139,250,0.1); color: var(--accent3); border: 1px solid rgba(167,139,250,0.2); }
+
+  /* Research / Achievement */
+  #research { border-top: 1px solid var(--border); }
+  .research-card {
+    background: var(--surface);
+    border: 1px solid rgba(110,231,183,0.25);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  .research-glow {
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(110,231,183,0.08), transparent 65%);
+    pointer-events: none;
+  }
+  .research-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(110,231,183,0.1); border: 1px solid rgba(110,231,183,0.3);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 11px; color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px; margin-bottom: 20px;
+  }
+  .research-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px; font-weight: 800;
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .research-meta {
+    font-size: 13px; color: var(--muted); line-height: 1.7;
+  }
+  .research-meta strong { color: var(--text); }
+  .research-cert {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+  }
+  .cert-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+  .cert-row + .cert-row { border-top: 1px solid var(--border); }
+  .cert-key { font-size: 12px; color: var(--muted); }
+  .cert-val { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--text); text-align: right; max-width: 60%; }
+
+  /* Education */
+  #education { border-top: 1px solid var(--border); }
+  .edu-timeline { position: relative; padding-left: 32px; }
+  .edu-timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+  }
+  .edu-item {
+    position: relative; margin-bottom: 44px;
+  }
+  .edu-item::before {
+    content: ''; position: absolute; left: -36px; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 16px var(--accent);
+  }
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700; margin-bottom: 4px;
+  }
+  .edu-school { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+  .edu-score {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(110,231,183,0.08); border: 1px solid rgba(110,231,183,0.2);
+    padding: 4px 14px; border-radius: 100px;
+    font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent);
+  }
+
+  /* Contact */
+  #contact { border-top: 1px solid var(--border); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .contact-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(36px, 5vw, 60px); font-weight: 800;
+    line-height: 1; letter-spacing: -2px; margin-bottom: 20px;
+  }
+  .contact-sub { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none; color: var(--text);
+    font-size: 14px; transition: color 0.3s;
+    padding: 14px 20px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .contact-link:hover { color: var(--accent); border-color: rgba(110,231,183,0.3); }
+  .contact-link-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .contact-link-text { flex: 1; }
+  .contact-link-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; font-family: 'DM Mono', monospace; letter-spacing: 0.5px; }
+  .contact-link-val { font-size: 13px; color: var(--text); }
+  .contact-right {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 24px; padding: 36px;
+  }
+  .contact-right h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700; margin-bottom: 24px;
+  }
+  .info-row {
+    display: flex; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { color: var(--muted); }
+  .info-val { color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--muted);
+    font-family: 'DM Mono', monospace; letter-spacing: 0.5px;
+    position: relative; z-index: 10;
+  }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* LeetCode badge */
+  .leetcode-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,161,22,0.1); border: 1px solid rgba(255,161,22,0.3);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 12px; color: #ffa116;
+    font-family: 'DM Mono', monospace;
+    text-decoration: none; margin-top: 16px;
+    transition: all 0.3s;
+  }
+  .leetcode-badge:hover { background: rgba(255,161,22,0.2); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    #hero { padding: 100px 20px 60px; }
+    .section-wrap { padding: 60px 20px; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; }
+    .research-card, .contact-inner { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Navigation -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
-    <nav>
-        <div class="nav-container">
+<canvas id="bg-canvas"></canvas>
 
-            <div class="logo">
-                Nithyasri<span>.</span>
-            </div>
+<nav>
+  <div class="nav-logo">NP</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Available for Opportunities</div>
+    <h1>
+      <span class="line1">Nithyasri</span>
+      <span class="line2">Periyasamy</span>
+    </h1>
+    <p class="hero-desc">
+      AI & Data Science engineer crafting intelligent systems — from deep learning models and computer vision pipelines to real-time IoT analytics and NLP solutions.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">9.09</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Events Organized</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Research Paper</div>
+      </div>
+    </div>
+    <a href="https://leetcode.com/u/nithyasri0550/" target="_blank" class="leetcode-badge">⚡ LeetCode: nithyasri0550</a>
+  </div>
+</section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <p class="section-label reveal">Technical Expertise</p>
+    <h2 class="section-title reveal">Skills &amp; Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🧠</div>
+        <div class="skill-name">Machine Learning</div>
+        <div class="skill-tags">
+          <span class="tag">Regression</span><span class="tag">Classification</span>
+          <span class="tag">Clustering</span><span class="tag">SVM</span>
+          <span class="tag">KNN</span><span class="tag">Decision Trees</span>
         </div>
-    </nav>
-
-
-    <!-- Hero -->
-
-    <header class="hero">
-
-        <div>
-
-            <h1>
-                Hi, I'm <span>Nithyasri</span>
-            </h1>
-
-            <h2>
-                Java Developer | AI & Data Science Graduate
-            </h2>
-
-            <p>
-                B.Tech graduate in Artificial Intelligence and Data Science
-                with a strong interest in <strong>Java development</strong>,
-                machine learning, computer vision, NLP and GenAI.
-                I enjoy building practical software and AI-based applications.
-            </p>
-
-            <div class="buttons">
-                <a href="#projects" class="btn primary">
-                    View Projects
-                </a>
-
-                <a href="#contact" class="btn secondary">
-                    Contact Me
-                </a>
-            </div>
-
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔬</div>
+        <div class="skill-name">Deep Learning</div>
+        <div class="skill-tags">
+          <span class="tag">CNNs</span><span class="tag">Neural Networks</span>
+          <span class="tag">TensorFlow</span><span class="tag">Keras</span>
+          <span class="tag">OpenCV</span>
         </div>
-
-
-        <div class="hero-card">
-
-            <h3>Core Focus</h3>
-
-            <p>
-                <span class="java-highlight">Java Development</span>
-            </p>
-
-            <p>Core Java & OOP</p>
-
-            <p>Machine Learning</p>
-
-            <p>Computer Vision</p>
-
-            <p>NLP & GenAI</p>
-
-            <p>Data Science</p>
-
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Data Analytics</div>
+        <div class="skill-tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+          <span class="tag">EDA</span><span class="tag">Scikit-learn</span>
         </div>
-
-    </header>
-
-
-    <!-- About -->
-
-    <section id="about" class="about">
-
-        <div class="about-content">
-
-            <h2 class="section-title">
-                About <span>Me</span>
-            </h2>
-
-            <p>
-                I am Nithyasri Periyasamy, a B.Tech graduate in Artificial
-                Intelligence and Data Science from Velalar College of
-                Engineering and Technology with a CGPA of 9.19.
-            </p>
-
-            <br>
-
-            <p>
-                My technical interests include <strong>Java development</strong>,
-                machine learning, deep learning, computer vision, NLP and
-                Generative AI. I have worked on projects involving Java,
-                Python, CNNs, OpenCV, NLP and AI-based applications.
-            </p>
-
-            <br>
-
-            <p>
-                I am interested in software development and AI roles where
-                I can combine strong programming fundamentals with
-                practical problem solving.
-            </p>
-
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">💻</div>
+        <div class="skill-name">Programming</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">SQL</span>
+          <span class="tag">Java</span><span class="tag">MySQL</span>
+          <span class="tag">HTML</span><span class="tag">JavaScript</span>
         </div>
-
-    </section>
-
-
-    <!-- Skills -->
-
-    <section id="skills">
-
-        <h2 class="section-title">
-            Technical <span>Skills</span>
-        </h2>
-
-        <div class="skills-grid">
-
-            <div class="skill-card java-card">
-
-                <h3>Java</h3>
-
-                <p>
-                    Core Java, Object-Oriented Programming,
-                    Exception Handling, Collections Framework,
-                    File Handling and application development.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Programming</h3>
-
-                <p>
-                    Python, Java, SQL, HTML, CSS
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Machine Learning</h3>
-
-                <p>
-                    Linear Regression, Logistic Regression,
-                    Ridge Regression, Perceptron,
-                    Classification and Model Evaluation.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Deep Learning</h3>
-
-                <p>
-                    CNN, TensorFlow, Keras, PyTorch
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Computer Vision</h3>
-
-                <p>
-                    OpenCV, YOLO, Image Classification,
-                    Object Detection and OCR.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>NLP & GenAI</h3>
-
-                <p>
-                    Natural Language Processing, RAG,
-                    Hugging Face, LLM applications and
-                    text classification.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Databases & Tools</h3>
-
-                <p>
-                    MySQL, Firebase, Git, GitHub,
-                    Streamlit and VS Code.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Web & Application</h3>
-
-                <p>
-                    HTML, CSS, Flutter, Node.js
-                    and application development.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Data Science</h3>
-
-                <p>
-                    Data preprocessing, feature engineering,
-                    model evaluation, visualization and
-                    statistical analysis.
-                </p>
-
-            </div>
-
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Development</div>
+        <div class="skill-tags">
+          <span class="tag">Node.js</span><span class="tag">Flutter</span>
+          <span class="tag">Firebase</span><span class="tag">WebSockets</span>
+          <span class="tag">Git</span><span class="tag">GitHub</span>
         </div>
-
-    </section>
-
-
-    <!-- Experience -->
-
-    <section id="experience">
-
-        <h2 class="section-title">
-            <span>Experience</span>
-        </h2>
-
-        <div class="experience-card">
-
-            <h3>AI Intern</h3>
-
-            <div class="company">
-                Svasti Technologies
-            </div>
-
-            <div class="date">
-                December 2024 – May 2025
-            </div>
-
-            <ul>
-
-                <li>
-                    Worked on computer vision applications using OpenCV
-                    and Haar Cascade.
-                </li>
-
-                <li>
-                    Developed and tested intrusion detection solutions.
-                </li>
-
-                <li>
-                    Worked with MQTT-based IoT automation.
-                </li>
-
-                <li>
-                    Integrated and tested Hugging Face models and APIs.
-                </li>
-
-                <li>
-                    Participated in debugging, testing and Agile
-                    development activities.
-                </li>
-
-            </ul>
-
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-name">AI & Vision</div>
+        <div class="skill-tags">
+          <span class="tag">YOLO</span><span class="tag">Haarcascade</span>
+          <span class="tag">OCR</span><span class="tag">NLP</span>
+          <span class="tag">Teachable Machine</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <p class="section-label reveal">What I've Built</p>
+    <h2 class="section-title reveal">Featured Projects</h2>
+    <div class="projects-grid">
 
-
-    <!-- Projects -->
-
-    <section id="projects" class="projects">
-
-        <div class="projects-container">
-
-            <h2 class="section-title">
-                Featured <span>Projects</span>
-            </h2>
-
-
-            <!-- Project 1 -->
-
-            <div class="project-grid">
-
-                <div class="project-card">
-
-                    <h3>
-                        Chest X-ray Disease Detection
-                    </h3>
-
-                    <p>
-                        Developed a deep learning system for detecting
-                        diseases from chest X-ray images using
-                        DenseNet121. Integrated Grad-CAM to provide
-                        visual explanations for model predictions.
-                    </p>
-
-                    <div class="tech">
-                        Python · CNN · DenseNet121 · TensorFlow ·
-                        Grad-CAM · Flask
-                    </div>
-
-                </div>
-
-
-                <!-- Project 2 -->
-
-                <div class="project-card">
-
-                    <h3>
-                        Profanity Detection & Censorship
-                    </h3>
-
-                    <p>
-                        Developed an NLP-based application for identifying
-                        inappropriate words in text and applying
-                        censorship to detected content.
-                    </p>
-
-                    <div class="tech">
-                        Python · NLP · Text Classification
-                    </div>
-
-                </div>
-
-
-                <!-- Project 3 -->
-
-                <div class="project-card">
-
-                    <h3>
-                        CNN Sign Language Translator
-                    </h3>
-
-                    <p>
-                        Built a real-time sign language recognition system
-                        using CNN and computer vision techniques to
-                        recognize hand signs and convert them into
-                        understandable output.
-                    </p>
-
-                    <div class="tech">
-                        Python · CNN · OpenCV · MediaPipe · Streamlit
-                    </div>
-
-                </div>
-
-
-                <!-- Project 4 -->
-
-                <div class="project-card">
-
-                    <h3>
-                        Expense Tracker — Java
-                    </h3>
-
-                    <p>
-                        Developed a simple expense tracking application
-                        using Java with object-oriented programming,
-                        expense management and data handling.
-                    </p>
-
-                    <div class="tech">
-                        Java · OOP · Collections · File Handling
-                    </div>
-
-                    <a
-                        href="https://github.com/Nithyasriperiasamy/Expense-tracker"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        View Java Project →
-                    </a>
-
-                </div>
-
-            </div>
-
+      <div class="project-card reveal">
+        <div class="project-num">01 / AI & VISION</div>
+        <div class="project-title">CNN-Based Sign Language Translator</div>
+        <div class="project-desc">Designed a CNN model for real-time sign language recognition, implementing computer vision techniques for accessible human-computer interaction.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">TensorFlow</span>
+          <span class="tech-chip chip-blue">OpenCV</span>
+          <span class="tech-chip chip-purple">Keras</span>
+          <span class="tech-chip chip-green">CNN</span>
         </div>
+      </div>
 
-    </section>
-
-
-    <!-- Education -->
-
-    <section id="education">
-
-        <h2 class="section-title">
-            <span>Education</span>
-        </h2>
-
-        <div class="education-card">
-
-            <h3>
-                B.Tech — Artificial Intelligence & Data Science
-            </h3>
-
-            <p>
-                Velalar College of Engineering and Technology
-            </p>
-
-            <p>
-                2022 – 2026
-            </p>
-
-            <p>
-                CGPA: <strong>9.19 / 10.0</strong>
-            </p>
-
+      <div class="project-card reveal">
+        <div class="project-num">02 / COMPUTER VISION</div>
+        <div class="project-title">Real-Time Intrusion Detection (YOLO)</div>
+        <div class="project-desc">Developed a surveillance system leveraging YOLO object detection with automated real-time intrusion alerts for enhanced security monitoring.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">YOLO</span>
+          <span class="tech-chip chip-blue">Python</span>
+          <span class="tech-chip chip-purple">OpenCV</span>
         </div>
+      </div>
 
-    </section>
-
-
-    <!-- Achievements -->
-
-    <section>
-
-        <h2 class="section-title">
-            Achievements & <span>Leadership</span>
-        </h2>
-
-        <div class="achievement-list">
-
-            <div class="achievement">
-
-                <h3>Avanzare V18.0</h3>
-
-                <p>
-                    Runner-up in the Transformers in Regional
-                    Language Processing event.
-                </p>
-
-            </div>
-
-
-            <div class="achievement">
-
-                <h3>RASET 2026</h3>
-
-                <p>
-                    Presented the chest X-ray disease detection
-                    project at the conference.
-                </p>
-
-            </div>
-
-
-            <div class="achievement">
-
-                <h3>AI Student Chapter</h3>
-
-                <p>
-                    Served as AI Student Chapter Lead and contributed
-                    to technical activities and student engagement.
-                </p>
-
-            </div>
-
-
-            <div class="achievement">
-
-                <h3>Student Leadership</h3>
-
-                <p>
-                    Served as Students' Association Secretary and
-                    organized 25+ technical and non-technical events.
-                </p>
-
-            </div>
-
+      <div class="project-card reveal">
+        <div class="project-num">03 / PREDICTIVE ANALYTICS</div>
+        <div class="project-title">Solar Power Forecasting System</div>
+        <div class="project-desc">Built predictive models using Linear Regression, Random Forest, and SVR for solar energy forecasting, integrated with MySQL database logging for real-time analysis.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">Random Forest</span>
+          <span class="tech-chip chip-blue">SVR</span>
+          <span class="tech-chip chip-purple">MySQL</span>
+          <span class="tech-chip chip-green">Python</span>
         </div>
+      </div>
 
-    </section>
+      <div class="project-card reveal">
+        <div class="project-num">04 / NLP</div>
+        <div class="project-title">AI-Powered Profanity Filter</div>
+        <div class="project-desc">Developed an NLP-based ML model to detect and filter offensive content using preprocessing and classification pipelines with Scikit-learn.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">NLP</span>
+          <span class="tech-chip chip-blue">Scikit-learn</span>
+          <span class="tech-chip chip-purple">Python</span>
+        </div>
+      </div>
 
+      <div class="project-card reveal">
+        <div class="project-num">05 / MOBILE</div>
+        <div class="project-title">Smart OCR-Based Text Reader</div>
+        <div class="project-desc">A Flutter application that extracts text from images using OCR and converts it to speech, improving accessibility for visually impaired users.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">Flutter</span>
+          <span class="tech-chip chip-blue">OCR</span>
+          <span class="tech-chip chip-purple">TTS</span>
+        </div>
+      </div>
 
-    <!-- Contact -->
+      <div class="project-card reveal">
+        <div class="project-num">06 / FULLSTACK</div>
+        <div class="project-title">Real-Time Chat Application</div>
+        <div class="project-desc">Built a web chat application using Node.js, WebSockets, and Firebase with secure authentication and real-time messaging capabilities.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-green">Node.js</span>
+          <span class="tech-chip chip-blue">WebSockets</span>
+          <span class="tech-chip chip-purple">Firebase</span>
+        </div>
+      </div>
 
-    <section id="contact" class="contact">
+    </div>
+  </div>
+</section>
 
-        <h2>Let's Connect</h2>
-
-        <p>
-            Interested in Java development, software engineering
-            and AI opportunities.
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-wrap">
+    <p class="section-label reveal">Published Work</p>
+    <h2 class="section-title reveal">Research</h2>
+    <div class="research-card reveal">
+      <div class="research-glow"></div>
+      <div>
+        <div class="research-badge">📄 RASET 2026 — National Conference</div>
+        <div class="research-title">Early Lung Disease Prediction & Personalized Treatment Recommendation Using Chest X-Ray Images</div>
+        <p class="research-meta">
+          Presented at the <strong>Sixth National Conference on Recent Advancements in Science, Engineering & Technologies (RASET 2026)</strong> organized by Bannari Amman Institute of Technology, Sathy — in association with <strong>IEEE Oceanic Engineering Society</strong>.
+          <br/><br/>
+          4th – 5th May 2026 &nbsp;|&nbsp; ISBN: 978-93-5812-163-6
         </p>
-
-        <div class="contact-links">
-
-            <a href="https://github.com/Nithyasriperiasamy" target="_blank">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/" target="_blank">
-                LinkedIn
-            </a>
-
-            <a href="https://nithyasri05.netlify.app/" target="_blank">
-                Portfolio
-            </a>
-
+        <a href="https://www.bitsathy.ac.in" target="_blank" style="display:inline-block; margin-top:20px; text-decoration:none;">
+          <span class="btn-secondary" style="font-size:13px; padding:10px 22px; display:inline-flex; align-items:center; gap:8px; border-radius:100px; border:1px solid rgba(255,255,255,0.1); color:#f0f6fc; background:rgba(255,255,255,0.03);">Bannari Amman Institute of Technology ↗</span>
+        </a>
+      </div>
+      <div class="research-cert">
+        <div class="cert-row">
+          <span class="cert-key">Certificate ID</span>
+          <span class="cert-val">ET26311-2</span>
         </div>
+        <div class="cert-row">
+          <span class="cert-key">Institution</span>
+          <span class="cert-val">Velalar College of Engineering & Technology</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-key">Conference</span>
+          <span class="cert-val">RASET 2026</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-key">Organizer</span>
+          <span class="cert-val">Dept. of ECE, BITSATHY</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-key">Association</span>
+          <span class="cert-val">IEEE OES + AquaTech ATI</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-key">ISBN</span>
+          <span class="cert-val">978-93-5812-163-6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <p class="section-label reveal">Academic Journey</p>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-timeline">
+      <div class="edu-item reveal">
+        <div class="edu-year">2022 — 2026</div>
+        <div class="edu-degree">B.Tech — Artificial Intelligence & Data Science</div>
+        <div class="edu-school">Velalar College of Engineering and Technology</div>
+        <span class="edu-score">⭐ CGPA: 9.09</span>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-year">2021 — 2022</div>
+        <div class="edu-degree">HSC (Higher Secondary)</div>
+        <div class="edu-school">Saraswathi Matriculation Higher Secondary School</div>
+        <span class="edu-score">📊 84.17%</span>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-year">2019 — 2020</div>
+        <div class="edu-degree">SSLC (Secondary School)</div>
+        <div class="edu-school">Jayam Matriculation Higher Secondary School</div>
+        <span class="edu-score">📊 92%</span>
+      </div>
+    </div>
 
+    <div style="margin-top: 60px;" class="reveal">
+      <p class="section-label" style="margin-bottom:16px;">Internship</p>
+      <div class="project-card" style="max-width: 600px; border-color: rgba(56,189,248,0.2);">
+        <div class="project-num">AI INTERNSHIP</div>
+        <div class="project-title">Svasti Technologies</div>
+        <div class="project-desc">Worked on computer vision and NLP projects using YOLO, Haarcascades, and Teachable Machine. Developed chatbots, CNN-based gesture recognition models, and real-time AI systems.</div>
+        <div class="project-tech">
+          <span class="tech-chip chip-blue">YOLO</span>
+          <span class="tech-chip chip-green">NLP</span>
+          <span class="tech-chip chip-purple">CNN</span>
+          <span class="tech-chip chip-blue">Haarcascades</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-
-        © 2026 Nithyasri Periyasamy. All rights reserved.
-
-    </footer>
-
-</body>
-</html>
-```
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="contact-inner">
+      <div class="reveal">
+        <p class="section-label">Let's Connect</p>
+        <h2 class="contact-heading">Say Hello<br/><span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">👋</span></h2>
+        <p class="contact-sub">Open to internship opportunities, research collaborations, and exciting AI/ML projects. Let's build something impactful together.</p>
+        <div class="contact-links">
+          <a href="mailto:nithyasriperiyasamy@gmail.com" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(234,67,53,0.1);">📧</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">EMAIL</div>
+              <div class="contact-link-val">nithyasriperiyasamy@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+916374347980" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(110,231,183,0.1);">📱</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">PHONE</div>
+              <div class="contact-link-val">+91 6374347980</div>
+            </div>
+          </a>
+          <a href="https://github.com/Nithyasriperiasamy" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(255,255,255,0.05);">🐙</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">GITHUB</div>
+              <div class="contact-link-val">github.com/Nithyasriperiasamy</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/nithyasri-p-78a0ab265" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(10,102,194,0.1);">💼</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">LINKEDIN</div>
+              <div class="contact-link-val">linkedin.com/in/nithyasri-p</div>
+            </div>
+          </a>
+          <a href="https://leetcode.com/u/nithyasri0550/" target="_blank" class="contact-link"> 
+            <div class="contact-link-icon" style="background:rgba(255,161,22,0.1);">⚡</div> 
+            <div class="contact-link-text"> 
+              <div class="contact-link-label">LEETCODE</div> 
+              <div class="contact-link-val">leetcode.com/u/nithyasri0550</div> 
+            </div> 
+          </a> 
+        </div> 
+      </div> 
+      <div class="contact-right reveal"> 
+        <h3>Quick Info</h3> 
+        <div class="info-row"> 
+          <span class="info-key">Role</span> 
+          <span class="info-val">AI & DS Student</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">Location</span> 
+          <span class="info-val">Tamil Nadu, India</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">Graduation</span> 
+          <span class="info-val">2026</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">CGPA</span> 
+          <span class="info-val">9.09 / 10</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">Specialization</span> 
+          <span class="info-val">CV, NLP, ML</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">Paper Presented</span> 
+          <span class="info-val">RASET 2026</span> 
+        </div> 
+        <div class="info-row"> 
+          <span class="info-key">Status</span> 
+          <span class="info-val" style="color:var(--accent);">● Open to Roles</span> 
+        </div> 
+        <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--border);"> 
+          <a href="mailto:nithyasriperiyasamy@gmail.com" class="btn-primary" style="width:100%; justify-content:center; border-radius:12px;"> 
+            Send Email → 
+          </a> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</section> 
+ 
+<footer> 
+  <p>© 2026 Nithyasri Periyasamy — Built with passion for AI & Data Science</p> 
+</footer> 
+ 
+<script> 
+// Animated particle background 
+const canvas = document.getElementById('bg-canvas'); 
+const ctx = canvas.getContext('2d'); 
+let W, H, particles = [], mouse = {x: -1000, y: -1000}; 
+ 
+function resize() { 
+  W = canvas.width = window.innerWidth; 
+  H = canvas.height = window.innerHeight; 
+} 
+resize(); 
+window.addEventListener('resize', resize); 
+ 
+class Particle { 
+  constructor() { this.reset(); } 
+  reset() { 
+    this.x = Math.random() * W; 
+    this.y = Math.random() * H; 
+    this.vx = (Math.random() - 0.5) * 0.3; 
+    this.vy = (Math.random() - 0.5) * 0.3; 
+    this.size = Math.random() * 1.5 + 0.5; 
+    this.alpha = Math.random() * 0.5 + 0.1; 
+    this.color = ['#6ee7b7','#38bdf8','#a78bfa'][Math.floor(Math.random()*3)]; 
+  } 
+  update() { 
+    this.x += this.vx; this.y += this.vy; 
+    if (this.x < 0 || this.x > W) this.vx *= -1; 
+    if (this.y < 0 || this.y > H) this.vy *= -1; 
+    // mouse repulsion 
+    const dx = this.x - mouse.x, dy = this.y - mouse.y; 
+    const dist = Math.sqrt(dx*dx + dy*dy); 
+    if (dist < 80) { this.x += dx/dist * 0.8; this.y += dy/dist * 0.8; } 
+  } 
+  draw() { 
+    ctx.beginPath(); 
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); 
+    ctx.fillStyle = this.color; 
+    ctx.globalAlpha = this.alpha; 
+    ctx.fill(); 
+    ctx.globalAlpha = 1; 
+  } 
+} 
+ 
+for (let i = 0; i < 120; i++) particles.push(new Particle()); 
+ 
+function drawConnections() { 
+  for (let i = 0; i < particles.length; i++) { 
+    for (let j = i+1; j < particles.length; j++) { 
+      const dx = particles[i].x - particles[j].x; 
+      const dy = particles[i].y - particles[j].y; 
+      const dist = Math.sqrt(dx*dx + dy*dy); 
+      if (dist < 100) { 
+        ctx.beginPath(); 
+        ctx.strokeStyle = '#6ee7b7'; 
+        ctx.globalAlpha = (1 - dist/100) * 0.08; 
+        ctx.lineWidth = 0.5; 
+        ctx.moveTo(particles[i].x, particles[i].y); 
+        ctx.lineTo(particles[j].x, particles[j].y); 
+        ctx.stroke(); 
+        ctx.globalAlpha = 1; 
+      } 
+    } 
+  } 
+} 
+ 
+function animate() { 
+  ctx.clearRect(0, 0, W, H); 
+  particles.forEach(p => { p.update(); p.draw(); }); 
+  drawConnections(); 
+  requestAnimationFrame(animate); 
+} 
+animate(); 
+ 
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }); 
+ 
+// Custom cursor 
+const cursor = document.getElementById('cursor'); 
+const ring = document.getElementById('cursor-ring'); 
+let cx = 0, cy = 0, rx = 0, ry = 0; 
+ 
+document.addEventListener('mousemove', e => { 
+  cx = e.clientX; cy = e.clientY; 
+  cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px'; 
+}); 
+ 
+function animateRing() { 
+  rx += (cx - rx) * 0.12; ry += (cy - ry) * 0.12; 
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; 
+  requestAnimationFrame(animateRing); 
+} 
+animateRing(); 
+ 
+document.querySelectorAll('a, button, .skill-card, .project-card').forEach(el => { 
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hovered'); ring.classList.add('hovered'); }); 
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hovered'); ring.classList.remove('hovered'); }); 
+}); 
+ 
+// Scroll reveal 
+const observer = new IntersectionObserver(entries => { 
+  entries.forEach((e, i) => { 
+    if (e.isIntersecting) { 
+      setTimeout(() => e.target.classList.add('visible'), i * 60); 
+    } 
+  }); 
+}, { threshold: 0.1 }); 
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); 
+</script> 
+</body> 
+</html>  correct it and give proper code 
