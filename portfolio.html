@@ -2,471 +2,1381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Nithyasri Periyasamy — AI & Data Science graduate specializing in Artificial Intelligence, Machine Learning, Computer Vision, NLP and Java.">
-
-<title>Nithyasri Periyasamy — AI & Data Science</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-
-:root {
-    --bg: #030712;
-    --surface: #0d1117;
-    --surface2: #161b22;
-    --border: rgba(255,255,255,0.08);
-
-    --accent: #6ee7b7;
-    --accent2: #38bdf8;
-    --accent3: #a78bfa;
-
-    --text: #f0f6fc;
-    --muted: #8b949e;
-
-    --glow: rgba(110,231,183,0.15);
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "DM Sans", sans-serif;
-    overflow-x: hidden;
-}
-
-/* -------------------------
-   CUSTOM CURSOR
-------------------------- */
-
-.cursor,
-.cursor-ring {
-    display: none;
-}
-
-@media (min-width: 769px) {
-
-    body {
-        cursor: none;
-    }
-
-    .cursor {
-        display: block;
-        position: fixed;
-        width: 12px;
-        height: 12px;
-        background: var(--accent);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition:
-            width 0.3s,
-            height 0.3s,
-            background 0.3s;
-        mix-blend-mode: screen;
-    }
-
-    .cursor-ring {
-        display: block;
-        position: fixed;
-        width: 36px;
-        height: 36px;
-        border: 1.5px solid var(--accent);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: all 0.18s ease;
-        opacity: 0.5;
-    }
-
-    .cursor.hovered {
-        width: 20px;
-        height: 20px;
-        background: var(--accent2);
-    }
-
-    .cursor-ring.hovered {
-        width: 54px;
-        height: 54px;
-        border-color: var(--accent2);
-    }
-}
-
-/* -------------------------
-   BACKGROUND
-------------------------- */
-
-#bg-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.45;
-    pointer-events: none;
-}
-
-/* -------------------------
-   NAVIGATION
-------------------------- */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-
-    padding: 20px 60px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(3,7,18,0.95),
-        transparent
-    );
-
-    backdrop-filter: blur(6px);
-}
-
-.nav-logo {
-    font-family: "Syne", sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-
-    background: linear-gradient(
-        135deg,
-        var(--accent),
-        var(--accent2)
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    letter-spacing: -0.5px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-
-    font-weight: 500;
-    font-family: "DM Mono", monospace;
-
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-/* -------------------------
-   GENERAL
-------------------------- */
-
-section {
-    position: relative;
-    z-index: 10;
-}
-
-.section-wrap {
-    max-width: 1200px;
-    margin: auto;
-    padding: 100px 60px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.section-label {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
+    <title>Nithyasri Periyasamy | Java & AI Developer</title>
 
-.section-title {
-    font-family: "Syne", sans-serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 60px;
-    line-height: 1.05;
-}
-
-/* -------------------------
-   HERO
-------------------------- */
-
-#hero {
-    min-height: 100vh;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    display: flex;
-    align-items: center;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    padding: 120px 60px 80px;
+    <style>
 
-    max-width: 1200px;
-    margin: auto;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.hero-inner {
-    max-width: 760px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8fafc;
+            color: #172033;
+            line-height: 1.6;
+        }
 
-    background: rgba(110,231,183,0.08);
-    border: 1px solid rgba(110,231,183,0.2);
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    padding: 8px 18px;
-    border-radius: 100px;
+        /* NAVIGATION */
 
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
 
-    color: var(--accent);
-    letter-spacing: 1px;
+            background: rgba(248, 250, 252, 0.95);
+            border-bottom: 1px solid #e2e8f0;
 
-    margin-bottom: 32px;
+            padding: 18px 8%;
+        }
 
-    animation: fadeUp 0.8s ease both;
-}
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
 
-.hero-tag::before {
-    content: "";
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    width: 6px;
-    height: 6px;
+        .logo {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
 
-    border-radius: 50%;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-    background: var(--accent);
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+        }
 
-    animation: pulse 2s infinite;
-}
+        .nav-links a:hover {
+            color: #2563eb;
+        }
 
-@keyframes pulse {
+        /* HERO */
 
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+        .hero {
+            max-width: 1150px;
+            margin: auto;
 
-    50% {
-        opacity: 0.4;
-        transform: scale(0.8);
-    }
-}
+            min-height: 620px;
 
-h1 {
-    font-family: "Syne", sans-serif;
+            display: flex;
+            align-items: center;
 
-    font-size: clamp(52px, 8vw, 90px);
+            padding: 90px 8%;
+        }
 
-    font-weight: 800;
+        .hero-content {
+            max-width: 760px;
+        }
 
-    line-height: 0.95;
+        .small-title {
+            font-family: "JetBrains Mono", monospace;
 
-    letter-spacing: -3px;
+            color: #2563eb;
 
-    margin-bottom: 28px;
+            font-size: 14px;
 
-    animation: fadeUp 0.8s 0.1s ease both;
-}
+            margin-bottom: 18px;
+        }
 
-h1 .line1 {
-    display: block;
-    color: var(--text);
-}
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 76px);
 
-h1 .line2 {
-    display: block;
+            line-height: 1.05;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--accent),
-            var(--accent2),
-            var(--accent3)
-        );
+            letter-spacing: -3px;
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+            margin-bottom: 22px;
+        }
 
-.hero-desc {
-    font-size: 17px;
+        .hero h1 span {
+            color: #2563eb;
+        }
 
-    line-height: 1.7;
+        .hero-description {
+            max-width: 650px;
 
-    color: var(--muted);
+            color: #64748b;
 
-    max-width: 620px;
+            font-size: 17px;
 
-    margin-bottom: 44px;
+            margin-bottom: 32px;
+        }
 
-    animation: fadeUp 0.8s 0.2s ease both;
-}
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-.hero-cta {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+        .button {
+            padding: 12px 22px;
 
-    animation: fadeUp 0.8s 0.3s ease both;
-}
+            border-radius: 8px;
 
-.btn-primary,
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+            font-size: 14px;
 
-    padding: 14px 30px;
+            font-weight: 600;
 
-    border-radius: 100px;
+            transition: 0.2s;
+        }
 
-    font-size: 14px;
+        .button-primary {
+            background: #2563eb;
+            color: white;
+        }
 
-    text-decoration: none;
+        .button-primary:hover {
+            background: #1d4ed8;
+        }
 
-    transition: all 0.3s ease;
-}
+        .button-secondary {
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            background: white;
+        }
 
-.btn-primary {
-    background: var(--accent);
-    color: #030712;
+        .button-secondary:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
 
-    font-weight: 600;
-}
+        /* QUICK INFO */
 
-.btn-primary:hover {
-    background: #a7f3d0;
+        .quick-info {
+            display: flex;
 
-    transform: translateY(-2px);
+            gap: 40px;
 
-    box-shadow:
-        0 16px 40px rgba(110,231,183,0.3);
-}
+            margin-top: 45px;
 
-.btn-secondary {
-    border: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
 
-    color: var(--text);
+        .quick-item strong {
+            display: block;
 
-    background: rgba(255,255,255,0.03);
-}
+            font-size: 25px;
 
-.btn-secondary:hover {
-    border-color: rgba(255,255,255,0.2);
+            color: #172033;
+        }
 
-    background: rgba(255,255,255,0.06);
+        .quick-item span {
+            font-size: 12px;
 
-    transform: translateY(-2px);
-}
+            color: #64748b;
+        }
 
-.hero-stats {
-    display: flex;
+        /* SECTIONS */
 
-    gap: 48px;
+        section {
+            border-top: 1px solid #e2e8f0;
+        }
 
-    margin-top: 64px;
+        .section {
+            max-width: 1150px;
 
-    animation: fadeUp 0.8s 0.4s ease both;
-}
+            margin: auto;
 
-.stat-item {
-    border-left: 2px solid var(--accent);
+            padding: 90px 8%;
+        }
 
-    padding-left: 16px;
-}
+        .section-heading {
+            margin-bottom: 45px;
+        }
 
-.stat-num {
-    font-family: "Syne", sans-serif;
+        .section-heading p {
+            font-family: "JetBrains Mono", monospace;
 
-    font-size: 32px;
+            font-size: 13px;
 
-    font-weight: 800;
+            color: #2563eb;
 
-    line-height: 1;
-}
+            margin-bottom: 8px;
+        }
 
-.stat-label {
-    font-size: 12px;
+        .section-heading h2 {
+            font-size: 38px;
 
-    color: var(--muted);
+            letter-spacing: -1.5px;
+        }
 
-    margin-top: 4px;
-}
+        /* SKILLS */
 
-.leetcode-badge {
-    display: inline-flex;
+        .skills-grid {
+            display: grid;
 
-    align-items: center;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    gap: 8px;
+            gap: 18px;
+        }
 
-    background: rgba(255,161,22,0.1);
+        .skill-card {
+            background: white;
 
-    border: 1px solid rgba(255,161,22,0.3);
+            border: 1px solid #e2e8f0;
 
-    padding: 7px 14px;
+            border-radius: 10px;
 
-    border-radius: 100px;
+            padding: 25px;
 
-    font-size: 12px;
+            transition: 0.2s;
+        }
 
-    color: #ffa116;
+        .skill-card:hover {
+            border-color: #93c5fd;
 
-    font-family: "DM Mono", monospace;
+            transform: translateY(-3px);
+        }
 
-    text-decoration: none;
+        .skill-card h3 {
+            font-size: 17px;
 
-    margin-top: 24px;
+            margin-bottom: 15px;
+        }
 
-    transition: all 0.3s ease;
-}
+        .skill-card p {
+            color: #64748b;
 
-.leetcode-badge:hover {
-    background: rgba(255,161,22,0.2);
-}
+            font-size: 14px;
 
-/* -------------------------
-   ANIMATION
+            line-height: 1.8;
+        }
+
+        /* JAVA HIGHLIGHT */
+
+        .java-card {
+            border: 2px solid #2563eb;
+
+            background: #eff6ff;
+        }
+
+        .java-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #1d4ed8;
+        }
+
+        .java-badge {
+            font-family: "JetBrains Mono", monospace;
+
+            font-size: 11px;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 4px 8px;
+
+            border-radius: 5px;
+        }
+
+        .skill-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 15px;
+        }
+
+        .skill-list span {
+            background: white;
+
+            border: 1px solid #dbeafe;
+
+            color: #334155;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            font-family: "JetBrains Mono", monospace;
+
+            font-size: 11px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .project {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 28px;
+
+            transition: 0.2s;
+        }
+
+        .project:hover {
+            border-color: #93c5fd;
+
+            transform: translateY(-3px);
+        }
+
+        .project-number {
+            font-family: "JetBrains Mono", monospace;
+
+            color: #2563eb;
+
+            font-size: 12px;
+
+            margin-bottom: 12px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .technologies {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .technologies span {
+            font-family: "JetBrains Mono", monospace;
+
+            font-size: 11px;
+
+            background: #f1f5f9;
+
+            color: #475569;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 30px;
+        }
+
+        .experience-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 15px;
+        }
+
+        .experience h3 {
+            font-size: 20px;
+        }
+
+        .experience-date {
+            font-family: "JetBrains Mono", monospace;
+
+            color: #2563eb;
+
+            font-size: 12px;
+        }
+
+        .experience h4 {
+            color: #64748b;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+        .experience ul {
+            padding-left: 20px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+        .experience li {
+            margin-bottom: 8px;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 30px;
+        }
+
+        .education-card h3 {
+            font-size: 21px;
+
+            margin-bottom: 5px;
+        }
+
+        .education-card h4 {
+            color: #64748b;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+        .cgpa {
+            display: inline-block;
+
+            background: #eff6ff;
+
+            color: #1d4ed8;
+
+            border: 1px solid #bfdbfe;
+
+            padding: 6px 12px;
+
+            border-radius: 6px;
+
+            font-family: "JetBrains Mono", monospace;
+
+            font-size: 12px;
+        }
+
+        /* RESEARCH */
+
+        .research {
+            background: #172033;
+
+            color: white;
+
+            border-radius: 12px;
+
+            padding: 35px;
+        }
+
+        .research-label {
+            font-family: "JetBrains Mono", monospace;
+
+            color: #60a5fa;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .research h3 {
+            font-size: 24px;
+
+            max-width: 800px;
+
+            margin-bottom: 15px;
+        }
+
+        .research p {
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            max-width: 850px;
+        }
+
+        /* CONTACT */
+
+        .contact-container {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .contact-text h2 {
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-text p {
+            color: #64748b;
+
+            max-width: 500px;
+        }
+
+        .contact-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .contact-link {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 16px 18px;
+
+            border-radius: 8px;
+
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: #93c5fd;
+        }
+
+        .contact-label {
+            font-family: "JetBrains Mono", monospace;
+
+            font-size: 10px;
+
+            color: #64748b;
+
+            margin-bottom: 3px;
+        }
+
+        .contact-value {
+            font-size: 14px;
+
+            color: #172033;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #e2e8f0;
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 16px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 5%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .quick-info {
+                gap: 25px;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">
+            NP.
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            JAVA • ARTIFICIAL INTELLIGENCE • DATA SCIENCE
+        </p>
+
+        <h1>
+            Nithyasri<br>
+            <span>Periyasamy</span>
+        </h1>
+
+        <p class="hero-description">
+            B.Tech Artificial Intelligence & Data Science graduate
+            interested in Java development, Machine Learning,
+            Computer Vision and NLP. I build practical software
+            and intelligent systems using Python and Java.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects"
+               class="button button-primary">
+                View Projects
+            </a>
+
+            <a href="mailto:nithyasriperiyasamy@gmail.com"
+               class="button button-secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+        <div class="quick-info">
+
+            <div class="quick-item">
+                <strong>9.19</strong>
+                <span>CGPA</span>
+            </div>
+
+            <div class="quick-item">
+                <strong>6+</strong>
+                <span>Projects</span>
+            </div>
+
+            <div class="quick-item">
+                <strong>Java</strong>
+                <span>Development</span>
+            </div>
+
+            <div class="quick-item">
+                <strong>2026</strong>
+                <span>Graduate</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section">
+
+        <div class="section-heading">
+            <p>01 / SKILLS</p>
+            <h2>Technical Skills</h2>
+        </div>
+
+
+        <div class="skills-grid">
+
+            <!-- JAVA -->
+
+            <div class="skill-card java-card">
+
+                <h3 class="java-title">
+                    Java
+                    <span class="java-badge">
+                        PRIMARY
+                    </span>
+                </h3>
+
+                <p>
+                    Core Java programming with object-oriented
+                    programming and application development.
+                </p>
+
+                <div class="skill-list">
+                    <span>Core Java</span>
+                    <span>OOP</span>
+                    <span>Collections</span>
+                    <span>Exception Handling</span>
+                    <span>File Handling</span>
+                    <span>MySQL</span>
+                </div>
+
+            </div>
+
+
+            <!-- AI -->
+
+            <div class="skill-card">
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+                    Building machine learning and intelligent
+                    systems for prediction, classification
+                    and automation.
+                </p>
+
+                <div class="skill-list">
+                    <span>Machine Learning</span>
+                    <span>Regression</span>
+                    <span>Classification</span>
+                    <span>Scikit-learn</span>
+                </div>
+
+            </div>
+
+
+            <!-- COMPUTER VISION -->
+
+            <div class="skill-card">
+
+                <h3>
+                    Computer Vision
+                </h3>
+
+                <p>
+                    Developing vision-based applications for
+                    detection, recognition and image analysis.
+                </p>
+
+                <div class="skill-list">
+                    <span>OpenCV</span>
+                    <span>YOLO</span>
+                    <span>CNN</span>
+                    <span>Haar Cascade</span>
+                </div>
+
+            </div>
+
+
+            <!-- NLP -->
+
+            <div class="skill-card">
+
+                <h3>
+                    NLP
+                </h3>
+
+                <p>
+                    Developing natural language processing
+                    solutions for text classification and
+                    content filtering.
+                </p>
+
+                <div class="skill-list">
+                    <span>NLP</span>
+                    <span>Text Classification</span>
+                    <span>TF-IDF</span>
+                    <span>Python</span>
+                </div>
+
+            </div>
+
+
+            <!-- DATA SCIENCE -->
+
+            <div class="skill-card">
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>
+                    Data preprocessing, analysis, visualization
+                    and predictive modelling.
+                </p>
+
+                <div class="skill-list">
+                    <span>Python</span>
+                    <span>NumPy</span>
+                    <span>Pandas</span>
+                    <span>Matplotlib</span>
+                    <span>SQL</span>
+                </div>
+
+            </div>
+
+
+            <!-- DEVELOPMENT -->
+
+            <div class="skill-card">
+
+                <h3>
+                    Development Tools
+                </h3>
+
+                <p>
+                    Tools and technologies used for software
+                    development and project deployment.
+                </p>
+
+                <div class="skill-list">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>VS Code</span>
+                    <span>Streamlit</span>
+                    <span>MySQL</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="section">
+
+        <div class="section-heading">
+            <p>02 / PROJECTS</p>
+            <h2>Selected Projects</h2>
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    Library Management System
+                </h3>
+
+                <p>
+                    Developed a Java-based library management
+                    application for managing books, members
+                    and basic library operations using
+                    object-oriented programming.
+                </p>
+
+                <div class="technologies">
+                    <span>Java</span>
+                    <span>OOP</span>
+                    <span>MySQL</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>
+                    Customer Opportunity Intelligence Platform
+                </h3>
+
+                <p>
+                    Built a machine learning platform to identify
+                    customer growth opportunities using income
+                    prediction, premium prediction and pricing
+                    analysis.
+                </p>
+
+                <div class="technologies">
+                    <span>Python</span>
+                    <span>Machine Learning</span>
+                    <span>Linear Regression</span>
+                    <span>Ridge</span>
+                    <span>Logistic Regression</span>
+                    <span>Streamlit</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>
+                    Chest X-Ray Disease Detection
+                </h3>
+
+                <p>
+                    Developed a deep learning based system for
+                    detecting lung diseases from chest X-ray
+                    images and explored personalized treatment
+                    recommendations.
+                </p>
+
+                <div class="technologies">
+                    <span>Python</span>
+                    <span>CNN</span>
+                    <span>Deep Learning</span>
+                    <span>OpenCV</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 04
+                </div>
+
+                <h3>
+                    Profanity Detection & Censorship
+                </h3>
+
+                <p>
+                    Developed an NLP-based system for detecting
+                    offensive text and applying content
+                    filtering using machine learning techniques.
+                </p>
+
+                <div class="technologies">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>TF-IDF</span>
+                    <span>Scikit-learn</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 05
+                </div>
+
+                <h3>
+                    CNN-Based Sign Language Translator
+                </h3>
+
+                <p>
+                    Built a computer vision application for
+                    recognizing sign language gestures using
+                    convolutional neural networks.
+                </p>
+
+                <div class="technologies">
+                    <span>Python</span>
+                    <span>CNN</span>
+                    <span>TensorFlow</span>
+                    <span>OpenCV</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 06
+                </div>
+
+                <h3>
+                    Real-Time Intrusion Detection
+                </h3>
+
+                <p>
+                    Developed a computer vision based intrusion
+                    detection system using object detection
+                    techniques for real-time monitoring.
+                </p>
+
+                <div class="technologies">
+                    <span>Python</span>
+                    <span>YOLO</span>
+                    <span>OpenCV</span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="section">
+
+        <div class="section-heading">
+            <p>03 / EXPERIENCE</p>
+            <h2>Internship</h2>
+        </div>
+
+
+        <div class="experience">
+
+            <div class="experience-header">
+
+                <div>
+                    <h3>
+                        AI Intern
+                    </h3>
+
+                    <h4>
+                        Adela Software
+                    </h4>
+                </div>
+
+                <div class="experience-date">
+                    2026
+                </div>
+
+            </div>
+
+            <ul>
+
+                <li>
+                    Worked on AI and machine learning related
+                    development tasks.
+                </li>
+
+                <li>
+                    Worked with Python-based data and AI
+                    workflows.
+                </li>
+
+                <li>
+                    Worked on testing, debugging and
+                    API integration.
+                </li>
+
+                <li>
+                    Applied machine learning concepts to
+                    practical business problems.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="section">
+
+        <div class="section-heading">
+            <p>04 / EDUCATION</p>
+            <h2>Education</h2>
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>
+                B.Tech — Artificial Intelligence & Data Science
+            </h3>
+
+            <h4>
+                Velalar College of Engineering and Technology
+            </h4>
+
+            <p>
+                2022 — 2026
+            </p>
+
+            <br>
+
+            <span class="cgpa">
+                CGPA: 9.19 / 10
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESEARCH -->
+
+<section>
+
+    <div class="section">
+
+        <div class="section-heading">
+            <p>05 / RESEARCH</p>
+            <h2>Research Work</h2>
+        </div>
+
+
+        <div class="research">
+
+            <div class="research-label">
+                RASET 2026
+            </div>
+
+            <h3>
+                Early Lung Disease Prediction &
+                Personalized Treatment Recommendation
+                Using Chest X-Ray Images
+            </h3>
+
+            <p>
+                Research work presented at the Sixth National
+                Conference on Recent Advancements in Science,
+                Engineering & Technologies (RASET 2026),
+                organized by Bannari Amman Institute of
+                Technology.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section">
+
+        <div class="contact-container">
+
+            <div class="contact-text">
+
+                <div class="section-heading">
+                    <p>06 / CONTACT</p>
+                    <h2>Let's Connect</h2>
+                </div>
+
+                <p>
+                    I am interested in Java development,
+                    AI/ML, software development and
+                    research opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="mailto:nithyasriperiyasamy@gmail.com"
+                    class="contact-link"
+                >
+                    <div class="contact-label">
+                        EMAIL
+                    </div>
+
+                    <div class="contact-value">
+                        nithyasriperiyasamy@gmail.com
+                    </div>
+                </a>
+
+
+                <a
+                    href="tel:+916374347980"
+                    class="contact-link"
+                >
+                    <div class="contact-label">
+                        PHONE
+                    </div>
+
+                    <div class="contact-value">
+                        +91 6374347980
+                    </div>
+                </a>
+
+
+                <a
+                    href="https://github.com/Nithyasriperiasamy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <div class="contact-label">
+                        GITHUB
+                    </div>
+
+                    <div class="contact-value">
+                        github.com/Nithyasriperiasamy
+                    </div>
+                </a>
+
+
+                <a
+                    href="https://linkedin.com/in/nithyasri-p-78a0ab265"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <div class="contact-label">
+                        LINKEDIN
+                    </div>
+
+                    <div class="contact-value">
+                        linkedin.com/in/nithyasri-p
+                    </div>
+                </a>
+
+
+                <a
+                    href="https://leetcode.com/u/nithyasri0550/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <div class="contact-label">
+                        LEETCODE
+                    </div>
+
+                    <div class="contact-value">
+                        leetcode.com/u/nithyasri0550
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Nithyasri Periyasamy
+
+</footer>
+
+</body>
+</html>
 ```
