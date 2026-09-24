@@ -1,234 +1,822 @@
 ```html
-<!-- HERO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="hero">
+    <title>Nithyasri Periyasamy | Java & AI Developer</title>
 
-    <div class="hero-content">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-        <p class="small-title">
-            JAVA DEVELOPER • AI & DATA SCIENCE
-        </p>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fa;
+            color: #202124;
+            line-height: 1.6;
+        }
 
-        <h1>
-            Nithyasri<br>
-            <span>Periyasamy</span>
-        </h1>
+        /* Navigation */
 
-        <p class="hero-role">
-            Java Developer
-        </p>
+        nav {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        <p class="hero-description">
-            B.Tech Artificial Intelligence & Data Science graduate
-            with a strong focus on Java development, Object-Oriented
-            Programming and software development, along with
-            experience in Machine Learning, Computer Vision and NLP.
-        </p>
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        <div class="buttons">
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #111827;
+        }
 
-            <a href="#projects"
-               class="button button-primary">
-                View Java Projects
-            </a>
+        .logo span {
+            color: #2563eb;
+        }
 
-            <a href="#contact"
-               class="button button-secondary">
-                Contact Me
-            </a>
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero */
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px 80px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero h2 {
+            font-size: 22px;
+            margin-bottom: 18px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #d1d5db;
+            color: #374151;
+            background: white;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .hero-card h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .hero-card p {
+            margin: 10px 0;
+            color: #4b5563;
+        }
+
+        .java-highlight {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* General */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 75px 25px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 35px;
+            color: #111827;
+        }
+
+        .section-title span {
+            color: #2563eb;
+        }
+
+        /* About */
+
+        .about {
+            background: white;
+            max-width: none;
+        }
+
+        .about-content {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .about p {
+            max-width: 850px;
+            color: #4b5563;
+            font-size: 16px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .skill-card p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .java-card {
+            border: 2px solid #2563eb;
+        }
+
+        .java-card h3 {
+            color: #2563eb;
+        }
+
+        /* Experience */
+
+        .experience-card {
+            background: white;
+            padding: 30px;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            border-top: 1px solid #e5e7eb;
+            border-right: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .experience-card h3 {
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .company {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .experience-card .date {
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+            color: #4b5563;
+        }
+
+        /* Projects */
+
+        .projects {
+            background: white;
+            max-width: none;
+        }
+
+        .projects-container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            padding: 28px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .project-card p {
+            color: #6b7280;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .tech {
+            font-size: 13px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 18px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* Education */
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: #6b7280;
+        }
+
+        /* Achievements */
+
+        .achievement-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .achievement {
+            background: white;
+            padding: 25px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .achievement h3 {
+            margin-bottom: 8px;
+        }
+
+        .achievement p {
+            color: #6b7280;
+        }
+
+        /* Contact */
+
+        .contact {
+            background: #111827;
+            color: white;
+            max-width: none;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            color: #60a5fa;
+        }
+
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #374151;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                Nithyasri<span>.</span>
+            </div>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div>
+
+            <h1>
+                Hi, I'm <span>Nithyasri</span>
+            </h1>
+
+            <h2>
+                Java Developer | AI & Data Science Graduate
+            </h2>
+
+            <p>
+                B.Tech graduate in Artificial Intelligence and Data Science
+                with a strong interest in <strong>Java development</strong>,
+                machine learning, computer vision, NLP and GenAI.
+                I enjoy building practical software and AI-based applications.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+            </div>
 
         </div>
 
-        <div class="quick-info">
 
-            <div class="quick-item java-stat">
-                <strong>Java</strong>
-                <span>Primary Skill</span>
-            </div>
+        <div class="hero-card">
 
-            <div class="quick-item">
-                <strong>OOP</strong>
-                <span>Core Concept</span>
-            </div>
+            <h3>Core Focus</h3>
 
-            <div class="quick-item">
-                <strong>9.19</strong>
-                <span>CGPA</span>
-            </div>
+            <p>
+                <span class="java-highlight">Java Development</span>
+            </p>
 
-            <div class="quick-item">
-                <strong>2026</strong>
-                <span>Graduate</span>
-            </div>
+            <p>Core Java & OOP</p>
+
+            <p>Machine Learning</p>
+
+            <p>Computer Vision</p>
+
+            <p>NLP & GenAI</p>
+
+            <p>Data Science</p>
 
         </div>
 
-    </div>
-
-</section>
+    </header>
 
 
-<!-- SKILLS -->
+    <!-- About -->
 
-<section id="skills">
+    <section id="about" class="about">
 
-    <div class="section">
+        <div class="about-content">
 
-        <div class="section-heading">
-            <p>01 / TECHNICAL SKILLS</p>
-            <h2>Java & Software Development</h2>
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p>
+                I am Nithyasri Periyasamy, a B.Tech graduate in Artificial
+                Intelligence and Data Science from Velalar College of
+                Engineering and Technology with a CGPA of 9.19.
+            </p>
+
+            <br>
+
+            <p>
+                My technical interests include <strong>Java development</strong>,
+                machine learning, deep learning, computer vision, NLP and
+                Generative AI. I have worked on projects involving Java,
+                Python, CNNs, OpenCV, NLP and AI-based applications.
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in software development and AI roles where
+                I can combine strong programming fundamentals with
+                practical problem solving.
+            </p>
+
         </div>
+
+    </section>
+
+
+    <!-- Skills -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            Technical <span>Skills</span>
+        </h2>
 
         <div class="skills-grid">
 
-            <!-- MAIN JAVA CARD -->
-
             <div class="skill-card java-card">
 
-                <div class="java-label">
-                    PRIMARY TECHNOLOGY
-                </div>
-
-                <h3>Java Development</h3>
+                <h3>Java</h3>
 
                 <p>
-                    Strong foundation in Java programming and
-                    Object-Oriented Programming with experience
-                    building application-level projects.
+                    Core Java, Object-Oriented Programming,
+                    Exception Handling, Collections Framework,
+                    File Handling and application development.
                 </p>
-
-                <div class="skill-list">
-
-                    <span>Core Java</span>
-                    <span>OOP</span>
-                    <span>Classes & Objects</span>
-                    <span>Inheritance</span>
-                    <span>Polymorphism</span>
-                    <span>Abstraction</span>
-                    <span>Encapsulation</span>
-                    <span>Collections</span>
-                    <span>Exception Handling</span>
-                    <span>File Handling</span>
-                    <span>MySQL</span>
-
-                </div>
 
             </div>
 
-
-            <!-- JAVA PROJECT DEVELOPMENT -->
 
             <div class="skill-card">
 
-                <h3>Java Application Development</h3>
+                <h3>Programming</h3>
 
                 <p>
-                    Developing structured Java applications
-                    using OOP principles, collections,
-                    exception handling and database connectivity.
+                    Python, Java, SQL, HTML, CSS
                 </p>
-
-                <div class="skill-list">
-
-                    <span>Java</span>
-                    <span>OOP</span>
-                    <span>JDBC</span>
-                    <span>MySQL</span>
-                    <span>CRUD</span>
-
-                </div>
 
             </div>
 
-
-            <!-- AI -->
 
             <div class="skill-card">
 
-                <h3>Artificial Intelligence</h3>
+                <h3>Machine Learning</h3>
 
                 <p>
-                    Machine learning and deep learning techniques
-                    for prediction, classification and intelligent
-                    applications.
+                    Linear Regression, Logistic Regression,
+                    Ridge Regression, Perceptron,
+                    Classification and Model Evaluation.
                 </p>
-
-                <div class="skill-list">
-
-                    <span>Machine Learning</span>
-                    <span>Regression</span>
-                    <span>Classification</span>
-                    <span>Scikit-learn</span>
-
-                </div>
 
             </div>
 
 
-            <!-- COMPUTER VISION -->
+            <div class="skill-card">
+
+                <h3>Deep Learning</h3>
+
+                <p>
+                    CNN, TensorFlow, Keras, PyTorch
+                </p>
+
+            </div>
+
 
             <div class="skill-card">
 
                 <h3>Computer Vision</h3>
 
                 <p>
-                    Image processing and object detection
-                    applications using computer vision techniques.
+                    OpenCV, YOLO, Image Classification,
+                    Object Detection and OCR.
                 </p>
-
-                <div class="skill-list">
-
-                    <span>OpenCV</span>
-                    <span>YOLO</span>
-                    <span>CNN</span>
-                    <span>Haar Cascade</span>
-
-                </div>
 
             </div>
 
-
-            <!-- NLP -->
 
             <div class="skill-card">
 
-                <h3>Natural Language Processing</h3>
+                <h3>NLP & GenAI</h3>
 
                 <p>
-                    Text processing and classification systems
-                    using NLP and machine learning techniques.
+                    Natural Language Processing, RAG,
+                    Hugging Face, LLM applications and
+                    text classification.
                 </p>
-
-                <div class="skill-list">
-
-                    <span>NLP</span>
-                    <span>TF-IDF</span>
-                    <span>Classification</span>
-                    <span>Python</span>
-
-                </div>
 
             </div>
 
-
-            <!-- TOOLS -->
 
             <div class="skill-card">
 
-                <h3>Tools & Technologies</h3>
+                <h3>Databases & Tools</h3>
 
                 <p>
-                    Development tools and technologies used
-                    across Java, AI and data science projects.
+                    MySQL, Firebase, Git, GitHub,
+                    Streamlit and VS Code.
                 </p>
 
-                <div class="skill-list">
+            </div>
 
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>VS Code</span>
-                    <span>MySQL</span>
-                    <span>Python</span>
+
+            <div class="skill-card">
+
+                <h3>Web & Application</h3>
+
+                <p>
+                    HTML, CSS, Flutter, Node.js
+                    and application development.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Data Science</h3>
+
+                <p>
+                    Data preprocessing, feature engineering,
+                    model evaluation, visualization and
+                    statistical analysis.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Experience -->
+
+    <section id="experience">
+
+        <h2 class="section-title">
+            <span>Experience</span>
+        </h2>
+
+        <div class="experience-card">
+
+            <h3>AI Intern</h3>
+
+            <div class="company">
+                Svasti Technologies
+            </div>
+
+            <div class="date">
+                December 2024 – May 2025
+            </div>
+
+            <ul>
+
+                <li>
+                    Worked on computer vision applications using OpenCV
+                    and Haar Cascade.
+                </li>
+
+                <li>
+                    Developed and tested intrusion detection solutions.
+                </li>
+
+                <li>
+                    Worked with MQTT-based IoT automation.
+                </li>
+
+                <li>
+                    Integrated and tested Hugging Face models and APIs.
+                </li>
+
+                <li>
+                    Participated in debugging, testing and Agile
+                    development activities.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+
+    <section id="projects" class="projects">
+
+        <div class="projects-container">
+
+            <h2 class="section-title">
+                Featured <span>Projects</span>
+            </h2>
+
+
+            <!-- Project 1 -->
+
+            <div class="project-grid">
+
+                <div class="project-card">
+
+                    <h3>
+                        Chest X-ray Disease Detection
+                    </h3>
+
+                    <p>
+                        Developed a deep learning system for detecting
+                        diseases from chest X-ray images using
+                        DenseNet121. Integrated Grad-CAM to provide
+                        visual explanations for model predictions.
+                    </p>
+
+                    <div class="tech">
+                        Python · CNN · DenseNet121 · TensorFlow ·
+                        Grad-CAM · Flask
+                    </div>
+
+                </div>
+
+
+                <!-- Project 2 -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Profanity Detection & Censorship
+                    </h3>
+
+                    <p>
+                        Developed an NLP-based application for identifying
+                        inappropriate words in text and applying
+                        censorship to detected content.
+                    </p>
+
+                    <div class="tech">
+                        Python · NLP · Text Classification
+                    </div>
+
+                </div>
+
+
+                <!-- Project 3 -->
+
+                <div class="project-card">
+
+                    <h3>
+                        CNN Sign Language Translator
+                    </h3>
+
+                    <p>
+                        Built a real-time sign language recognition system
+                        using CNN and computer vision techniques to
+                        recognize hand signs and convert them into
+                        understandable output.
+                    </p>
+
+                    <div class="tech">
+                        Python · CNN · OpenCV · MediaPipe · Streamlit
+                    </div>
+
+                </div>
+
+
+                <!-- Project 4 -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Expense Tracker — Java
+                    </h3>
+
+                    <p>
+                        Developed a simple expense tracking application
+                        using Java with object-oriented programming,
+                        expense management and data handling.
+                    </p>
+
+                    <div class="tech">
+                        Java · OOP · Collections · File Handling
+                    </div>
+
+                    <a
+                        href="https://github.com/Nithyasriperiasamy/Expense-tracker"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Java Project →
+                    </a>
 
                 </div>
 
@@ -236,305 +824,138 @@
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- PROJECTS -->
+    <!-- Education -->
 
-<section id="projects">
+    <section id="education">
 
-    <div class="section">
+        <h2 class="section-title">
+            <span>Education</span>
+        </h2>
 
-        <div class="section-heading">
-            <p>02 / PROJECTS</p>
-            <h2>Java & AI Projects</h2>
+        <div class="education-card">
+
+            <h3>
+                B.Tech — Artificial Intelligence & Data Science
+            </h3>
+
+            <p>
+                Velalar College of Engineering and Technology
+            </p>
+
+            <p>
+                2022 – 2026
+            </p>
+
+            <p>
+                CGPA: <strong>9.19 / 10.0</strong>
+            </p>
+
         </div>
 
-        <div class="projects">
+    </section>
 
 
-            <!-- JAVA PROJECT FIRST -->
+    <!-- Achievements -->
 
-            <div class="project java-project">
+    <section>
 
-                <div class="project-number">
-                    JAVA PROJECT
-                </div>
+        <h2 class="section-title">
+            Achievements & <span>Leadership</span>
+        </h2>
 
-                <h3>
-                    Library Management System
-                </h3>
+        <div class="achievement-list">
+
+            <div class="achievement">
+
+                <h3>Avanzare V18.0</h3>
 
                 <p>
-                    Developed a Java-based application for
-                    managing books, members and library
-                    operations using Object-Oriented Programming.
+                    Runner-up in the Transformers in Regional
+                    Language Processing event.
                 </p>
-
-                <div class="technologies">
-
-                    <span>Java</span>
-                    <span>OOP</span>
-                    <span>Collections</span>
-                    <span>Exception Handling</span>
-                    <span>MySQL</span>
-
-                </div>
 
             </div>
 
 
-            <!-- AI PROJECT -->
+            <div class="achievement">
 
-            <div class="project">
-
-                <div class="project-number">
-                    JAVA + AI
-                </div>
-
-                <h3>
-                    Customer Opportunity Intelligence Platform
-                </h3>
+                <h3>RASET 2026</h3>
 
                 <p>
-                    Developed a machine learning platform to
-                    identify customer opportunities through
-                    income prediction, premium prediction and
-                    pricing analysis.
+                    Presented the chest X-ray disease detection
+                    project at the conference.
                 </p>
-
-                <div class="technologies">
-
-                    <span>Python</span>
-                    <span>Machine Learning</span>
-                    <span>Linear Regression</span>
-                    <span>Ridge Regression</span>
-                    <span>Logistic Regression</span>
-
-                </div>
 
             </div>
 
 
-            <!-- COMPUTER VISION -->
+            <div class="achievement">
 
-            <div class="project">
-
-                <div class="project-number">
-                    COMPUTER VISION
-                </div>
-
-                <h3>
-                    Chest X-Ray Disease Detection
-                </h3>
+                <h3>AI Student Chapter</h3>
 
                 <p>
-                    Developed a deep learning system for
-                    detecting diseases from chest X-ray
-                    images using convolutional neural networks.
+                    Served as AI Student Chapter Lead and contributed
+                    to technical activities and student engagement.
                 </p>
-
-                <div class="technologies">
-
-                    <span>Python</span>
-                    <span>CNN</span>
-                    <span>Deep Learning</span>
-                    <span>OpenCV</span>
-
-                </div>
 
             </div>
 
 
-            <!-- NLP -->
+            <div class="achievement">
 
-            <div class="project">
-
-                <div class="project-number">
-                    NLP
-                </div>
-
-                <h3>
-                    Profanity Detection & Censorship
-                </h3>
+                <h3>Student Leadership</h3>
 
                 <p>
-                    Developed an NLP-based system to detect
-                    offensive content and filter inappropriate
-                    text using machine learning.
+                    Served as Students' Association Secretary and
+                    organized 25+ technical and non-technical events.
                 </p>
-
-                <div class="technologies">
-
-                    <span>Python</span>
-                    <span>NLP</span>
-                    <span>TF-IDF</span>
-                    <span>Scikit-learn</span>
-
-                </div>
-
-            </div>
-
-
-            <!-- CV -->
-
-            <div class="project">
-
-                <div class="project-number">
-                    COMPUTER VISION
-                </div>
-
-                <h3>
-                    CNN-Based Sign Language Translator
-                </h3>
-
-                <p>
-                    Built a computer vision application for
-                    recognizing sign language gestures using
-                    convolutional neural networks.
-                </p>
-
-                <div class="technologies">
-
-                    <span>Python</span>
-                    <span>CNN</span>
-                    <span>TensorFlow</span>
-                    <span>OpenCV</span>
-
-                </div>
-
-            </div>
-
-
-            <!-- YOLO -->
-
-            <div class="project">
-
-                <div class="project-number">
-                    COMPUTER VISION
-                </div>
-
-                <h3>
-                    Real-Time Intrusion Detection
-                </h3>
-
-                <p>
-                    Developed a real-time intrusion detection
-                    system using YOLO and OpenCV for
-                    object detection and monitoring.
-                </p>
-
-                <div class="technologies">
-
-                    <span>Python</span>
-                    <span>YOLO</span>
-                    <span>OpenCV</span>
-
-                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-```
 
-Add these CSS rules to the existing `<style>`:
+    <!-- Contact -->
 
-```css
-/* JAVA FOCUS */
+    <section id="contact" class="contact">
 
-.hero-role {
-    display: inline-block;
+        <h2>Let's Connect</h2>
 
-    font-family: "JetBrains Mono", monospace;
+        <p>
+            Interested in Java development, software engineering
+            and AI opportunities.
+        </p>
 
-    font-size: 20px;
+        <div class="contact-links">
 
-    font-weight: 600;
+            <a href="https://github.com/Nithyasriperiasamy" target="_blank">
+                GitHub
+            </a>
 
-    color: #2563eb;
+            <a href="https://www.linkedin.com/" target="_blank">
+                LinkedIn
+            </a>
 
-    background: #eff6ff;
+            <a href="https://nithyasri05.netlify.app/" target="_blank">
+                Portfolio
+            </a>
 
-    border: 1px solid #bfdbfe;
+        </div>
 
-    padding: 7px 13px;
+    </section>
 
-    border-radius: 6px;
 
-    margin-bottom: 20px;
-}
+    <footer>
 
-.java-stat strong {
-    color: #2563eb;
-}
+        © 2026 Nithyasri Periyasamy. All rights reserved.
 
-.java-card {
-    grid-column: span 2;
+    </footer>
 
-    border: 2px solid #2563eb;
-
-    background: #eff6ff;
-
-    position: relative;
-}
-
-.java-label {
-    display: inline-block;
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    color: white;
-
-    background: #2563eb;
-
-    padding: 5px 9px;
-
-    border-radius: 5px;
-
-    margin-bottom: 14px;
-}
-
-.java-card h3 {
-    color: #1d4ed8;
-
-    font-size: 24px;
-}
-
-.java-card p {
-    max-width: 700px;
-}
-
-.java-card .skill-list span {
-    border-color: #bfdbfe;
-
-    background: white;
-
-    color: #1e3a8a;
-}
-
-.java-project {
-    border: 2px solid #2563eb;
-
-    background: #eff6ff;
-}
-
-.java-project .project-number {
-    color: #1d4ed8;
-
-    font-weight: 600;
-}
-
-.java-project h3 {
-    color: #1d4ed8;
-}
+</body>
+</html>
 ```
